@@ -8,7 +8,7 @@ def meta = publishMeta(
     targetFile: 'app.zip'
 )
 publishAppPipeline meta: meta, {
-     sh "mvn clean package -Pstage"
-     sh "zip -r ${meta.targetFile} Procfile target/newrelic-extentions-test.jar .ebextensions"
+     sh "mvn clean package"
+     sh "zip -r ${meta.targetFile} Procfile target/*.jar .ebextensions"
      sh "mv ${meta.targetFile} ${meta.destinationFile}"
  }
