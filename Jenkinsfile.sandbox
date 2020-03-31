@@ -9,6 +9,6 @@ def meta = publishMeta(
 )
 publishAppPipeline meta: meta, {
      sh "mvn clean package"
-     sh "zip -r ${meta.targetFile} Procfile target/*.jar .ebextensions"
+     sh "zip -r ${meta.targetFile} Procfile target/spring-boot-0.0.1-SNAPSHOT.jar .ebextensions"
      sh "mv ${meta.targetFile} ${meta.destinationFile}"
  }
